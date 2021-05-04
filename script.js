@@ -3,6 +3,8 @@ const nav = document.querySelector('.nav-links');
 const inputUrl = document.querySelector('.input-url');
 const shortenContainer = document.querySelector('.shorten-output');
 
+
+
 hamburger.addEventListener('click', () => {
     nav.classList.toggle('nav-active');
 });
@@ -24,7 +26,7 @@ async function getUrl(url) {
 }
 
 function showShortenUrl(url) {
-    const { full_short_link3, original_link } = url;
+    const { full_short_link2, original_link } = url;
 
     const linkCard = document.createElement('div');
     linkCard.classList.add('links');
@@ -32,12 +34,23 @@ function showShortenUrl(url) {
     linkCard.innerHTML = `
         <p class="input-link">${original_link}</p>
         <div class="shorten">
-            <p class="shorten-link">${full_short_link3}</p>
-            <button class="copy">Copy</button>
+            <p class="shorten-link">${full_short_link2}</p>
+            <button id="copy" class="copy">Copy</button>
         </div>
     `;
 
     shortenContainer.appendChild(linkCard);
+    const copy = linkCard.querySelector('.copy');
+
+    copy.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        const btn = e.target;
+        btn.style.backgroundColor = 'rgb(53, 50, 62)';
+        btn.style.color = 'white';
+        btn.innerText = 'Copied';
+    });
+
 }
 
 form.addEventListener('submit', (e) => {
