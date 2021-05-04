@@ -45,6 +45,7 @@ function showShortenUrl(url) {
         e.preventDefault();
 
         const btn = e.target;
+        console.log(btn);
         btn.style.backgroundColor = 'rgb(53, 50, 62)';
         btn.style.color = 'white';
         btn.innerText = 'Copied';
